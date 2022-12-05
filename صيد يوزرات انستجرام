@@ -1,0 +1,13 @@
+import random,requests
+
+na = 'qwertyuiop1234567890lkjhgfdsazxcvbnm'
+while True:
+	username= str(''.join(random.choice(na)for i in range(6)))
+	
+	api = f"https://www.instagram.com/accounts/web_create_ajax/attempt/"
+	req = requests.get(api).text
+	if str("True") in str(req):
+		print("req")
+		print("User Good: "+username)
+	else:
+		print("User Bad: "+username)
